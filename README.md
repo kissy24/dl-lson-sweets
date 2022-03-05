@@ -3,9 +3,9 @@
 [![codecov](https://codecov.io/gh/kissy24/go-lsondessert/branch/main/graph/badge.svg?token=NOAO68A214)](https://codecov.io/gh/kissy24/go-lsondessert)
 ![](https://img.shields.io/github/license/kissy24/go-lsondessert)
 
-# go-lsondessert
+# DL Lawson Sweets
 
-This tool can be used to download images of Lawson desserts.
+This tool can be used to download images of Lawson sweets.
 
 ## Usage
 
