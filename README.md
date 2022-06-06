@@ -1,6 +1,6 @@
 ![](https://img.shields.io/github/go-mod/go-version/kissy24/go-lsondessert)
 ![](https://img.shields.io/github/workflow/status/kissy24/go-lsondessert/test)
-[![codecov](https://codecov.io/gh/kissy24/go-lsondessert/branch/main/graph/badge.svg?token=NOAO68A214)](https://codecov.io/gh/kissy24/go-lsondessert)
+[![codecov](https://codecov.io/gh/kissy24/dl-lson-sweets/branch/main/graph/badge.svg?token=NOAO68A214)](https://codecov.io/gh/kissy24/dl-lson-sweets)
 ![](https://img.shields.io/github/license/kissy24/go-lsondessert)
 
 # DL Lawson Sweets
