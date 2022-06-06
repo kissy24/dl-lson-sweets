@@ -2,11 +2,19 @@ package main
 
 import "testing"
 
-func TestGetImageURLs(t *testing.T) {
+func getImageURLs() ([]Image, error) {
 	domainUrl := "https://www.lawson.co.jp"
 	srcDirUrl := "/recommend/original/dessert/"
 	imgDirUrl := "/recommend/original/detail/img/"
 	imgUrls, err := GetImageURLs(domainUrl, srcDirUrl, imgDirUrl)
+	if err != nil {
+		return nil, err
+	}
+	return imgUrls, nil
+}
+
+func TestGetImageURLs(t *testing.T) {
+	imgUrls, err := getImageURLs()
 	if err != nil {
 		t.Error(err)
 	}
@@ -16,10 +24,7 @@ func TestGetImageURLs(t *testing.T) {
 }
 
 func TestDownloadImages(t *testing.T) {
-	domainUrl := "https://www.lawson.co.jp"
-	srcDirUrl := "/recommend/original/dessert/"
-	imgDirUrl := "/recommend/original/detail/img/"
-	imgUrls, err := GetImageURLs(domainUrl, srcDirUrl, imgDirUrl)
+	imgUrls, err := getImageURLs()
 	if err != nil {
 		t.Error(err)
 	}
