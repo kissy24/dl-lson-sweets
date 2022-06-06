@@ -15,12 +15,21 @@ type Image struct {
 	FileName string
 }
 
+/*
+Get image URLs
+Args:
+	domainUrl: domain URL
+	srcDirUrl: source directory URL
+	imgDirUrl: image directory URL
+Returns:
+	[]Image: image URLs
+*/
 func GetImageURLs(domainUrl string, srcDirUrl string, imgDirUrl string) ([]Image, error) {
 	doc, err := goquery.NewDocument(domainUrl + srcDirUrl)
 	if err != nil {
 		return nil, err
 	}
-	var urls []Image
+	var images []Image
 	doc.Find("img").Each(func(_ int, s *goquery.Selection) {
 		imgFileUrl, _ := s.Attr("src")
 		imgFileName, _ := s.Attr("alt")
@@ -28,12 +37,18 @@ func GetImageURLs(domainUrl string, srcDirUrl string, imgDirUrl string) ([]Image
 		if hasImgPattern {
 			imgUrl := domainUrl + imgFileUrl
 			img := Image{imgUrl, imgFileName}
-			urls = append(urls, img)
+			images = append(images, img)
 		}
 	})
-	return urls, nil
+	return images, nil
 }
 
+/*
+Download images
+Args:
+	imgUrls: image URLs
+	imgDir: image directory
+*/
 func DownloadImages(imgs []Image, imgDir string) {
 	for _, img := range imgs {
 		response, err := http.Get(img.URL)
@@ -43,6 +58,9 @@ func DownloadImages(imgs []Image, imgDir string) {
 		defer response.Body.Close()
 		if _, err := os.Stat(imgDir); os.IsNotExist(err) {
 			os.MkdirAll(imgDir, 0777)
+		}
+		if strings.Contains(img.FileName, "/") {
+			img.FileName = strings.Replace(img.FileName, "/", "-", 1)
 		}
 		file, err := os.Create(imgDir + "/" + img.FileName + ".jpg")
 		if err != nil {
