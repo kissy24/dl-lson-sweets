@@ -1,5 +1,5 @@
 ![](https://img.shields.io/github/go-mod/go-version/kissy24/go-lsondessert)
-![](https://img.shields.io/github/workflow/status/kissy24/go-lsondessert/test)
+![](https://img.shields.io/github/actions/workflow/status/kissy24/go-lsondessert/test.yml?branch=main)
 [![codecov](https://codecov.io/gh/kissy24/dl-lson-sweets/branch/main/graph/badge.svg?token=NOAO68A214)](https://codecov.io/gh/kissy24/dl-lson-sweets)
 ![](https://img.shields.io/github/license/kissy24/go-lsondessert)
 
